@@ -1,0 +1,19 @@
+executable	= wrapper.sh
+universe	= vanilla
+
+Error	= log/err.$(Cluster).$(Process)
+Output	= log/out.$(Cluster).$(Process)
+Log	= log/log.$(Cluster).$(Process)
+
+transfer_executable = True
+transfer_input_files = reco.tar
+
+transfer_output_files = ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST1_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST2_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST3_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST4_mcTest
+when_to_transfer_output = ON_EXIT
+
+Requirements = ( IS_RCC_stampede )
++WANT_RCC_stampede = true
+
++ProjectName = "scicomp-analytics"
+
+Queue 1
