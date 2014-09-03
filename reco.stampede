@@ -1,15 +1,25 @@
+#wrapper.sh is the script that is run on the job node
+
 executable	= wrapper.sh
 universe	= vanilla
+
+#You can modify the directory to save the logs
 
 Error	= log/err.$(Cluster).$(Process)
 Output	= log/out.$(Cluster).$(Process)
 Log	= log/log.$(Cluster).$(Process)
 
+#reco.tar is the archive of PTU package created from Derivation Framework example
+
 transfer_executable = True
 transfer_input_files = reco.tar
 
+#Paths to the output files are to be changed if the file structure of reco.tar is to be changed
+
 transfer_output_files = ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST1_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST2_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST3_mcTest, ptu-Reco/cde-root/home/rkommineni/root-apps/ptu-recotf/TEST4_mcTest
 when_to_transfer_output = ON_EXIT
+
+#Below two lines let you to submit jobs on Stampede
 
 Requirements = ( IS_RCC_stampede )
 +WANT_RCC_stampede = true
